@@ -10,6 +10,7 @@ public class ReorderableList
     #region Constructors
     public ReorderableList(SerializedObject serializedObject, SerializedProperty serializedProperty, bool draggable = true, bool displayHeader = true, bool displayAddButton = true, bool displayRemoveButton = true)
     {
+        name = serializedProperty.name;
         ctor =
                 constructorInfo_serialized.Invoke(new object[] { serializedObject, serializedProperty, draggable, displayHeader, displayAddButton, displayRemoveButton });
         ctor.GetType().GetProperty("index").SetValue(ctor, 0, null);
@@ -145,6 +146,7 @@ public class ReorderableList
 
     bool init;
     object ctor;
+    string name;
     DrawElementCallback _drawElementCallback;
     DrawHeaderCallback _drawHeaderCallback;
     AddCallbackDelegate _onAddDelegateCallback;
@@ -229,7 +231,7 @@ public class ReorderableList
         if (drawHeaderCallback.GetInvocationList().Length > 1)
             drawHeaderCallback(rect);
         else
-            GUI.Label(rect, serializedProperty.name);
+            GUI.Label(rect, name);
     }
 
     void AddCallback(object obj)
