@@ -52,9 +52,9 @@ Type|Name|Description
 SerializedObject|serializedObject|
 SerializedProperty|serializedProperty|
 bool|draggable| Can elements drag?
-bool|displayHeader| Draw header , if true.
-bool|displayAddButton| Draw AddButton , if true.
-bool|displayRemoveButton| Draw RemoveButton , if true.
+bool|displayHeader| Draw header , if true. The default is true.
+bool|displayAddButton| Draw AddButton , if true. The default is true.
+bool|displayRemoveButton| Draw RemoveButton , if true. The default is true.
 
 
 ### Variables
@@ -63,7 +63,7 @@ Type|Name|Description
 :---|:---|:---
 SerializedObject|serializedObject|
 SerializedProperty|serializedProperty|
-float|elementHeight|
+float|elementHeight| The default is 21.
 DrawElementCallback|drawElementCallback|
 DrawHeaderCallback|drawHeaderCallback|
 AddCallbackDelegate|onAddDelegateCallback|
